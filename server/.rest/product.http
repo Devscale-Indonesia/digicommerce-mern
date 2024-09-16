@@ -1,0 +1,34 @@
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZTgxYWZjNWY0YThhYThjMGRhYTZhMiIsIm5hbWUiOiJJbmRyYSBadWxmaSIsImVtYWlsIjoibWVAaW5kcmF6bS5jb20iLCJpYXQiOjE3MjY0OTI3MDMsImV4cCI6MTcyNjQ5MzYwM30.jgHyFtobu-WlfeSwA6ixywet2npXRCOBOkwI63SdXYA
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZTgxYWZjNWY0YThhYThjMGRhYTZhMiIsIm5hbWUiOiJJbmRyYSBadWxmaSIsImVtYWlsIjoibWVAaW5kcmF6bS5jb20iLCJpYXQiOjE3MjY0OTI3MDMsImV4cCI6MTcyOTA4NDcwM30.WXxUyXv0xBCUu7zxuDoh-hYMUxJPWlD419VHn7_fQbA
+
+### Get All Products
+GET http://localhost:8000/api/products
+Authorization: Bearer {{accessToken}}
+x-refresh-token: {{refreshToken}}
+
+
+### Get by Id
+GET http://localhost:8000/api/products/66e81d5bec365a05cd9f588b
+Authorization: Bearer {{accessToken}}
+x-refresh-token: {{refreshToken}}
+
+### Create Product
+POST http://localhost:8000/api/products
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+x-refresh-token: {{refreshToken}}
+
+{
+    "name": "Product name",
+    "description": "Product Description",
+    "price": 10,
+    "category": "ui-template",
+    "tags": [],
+    "images": [],
+    "authorId": "66e81afc5f4a8aa8c0daa6a2"
+}
+
+### Delete Product
+DELETE http://localhost:8000/api/products/1
+Authorization: Bearer {{accessToken}}
+x-refresh-token: {{refreshToken}}
