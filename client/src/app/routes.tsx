@@ -4,6 +4,7 @@ import { DashboardProducts } from '../features/dashboard-products/components';
 import { FormCreateproduct } from '../features/dashboard-products/components/form.create-product';
 import { Login } from '../features/authentication/components/login';
 import { Register } from '../features/authentication/components/register';
+import LayoutDashboard from '@/features/dashboard/components/layout';
 
 export const AppRouter = () => {
   return (
@@ -11,9 +12,11 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/products" element={<DashboardProducts />} />
-        <Route path="/dashboard/products/create" element={<FormCreateproduct />} />
+        <Route element={<LayoutDashboard />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/products" element={<DashboardProducts />} />
+          <Route path="/dashboard/products/create" element={<FormCreateproduct />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
