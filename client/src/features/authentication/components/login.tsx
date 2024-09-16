@@ -5,6 +5,7 @@ import { AuthLayout } from './layout.auth';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { loginUser } from '../services/login';
+import { Helmet } from 'react-helmet';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -24,6 +25,9 @@ export const Login = () => {
 
   return (
     <AuthLayout>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="w-[300px] space-y-4">
         <section>
           <h3>Login</h3>
