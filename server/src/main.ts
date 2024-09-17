@@ -3,7 +3,6 @@ import cors from "cors";
 import dbConnect from "./utils/db";
 import authRouter from "./router/auth.router";
 import productRouter from "./router/product.router";
-import { authMiddleware } from "./middleware/middleware";
 
 const app = express();
 
@@ -21,6 +20,6 @@ app.use(express.static("public"));
 
 // routes
 app.use("/api/auth", authRouter);
-app.use("/api/products", authMiddleware, productRouter);
+app.use("/api/products", productRouter);
 
 app.listen(8000, () => console.log("server running on port 8000"));

@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import LayoutDashboard from '@/features/dashboard/components/layout';
 import { useTag } from '../hooks/useTag';
 
 const CATEGORIES = [
@@ -74,9 +73,9 @@ export const FormCreateproduct = () => {
 
 const ProductTagsRenderer = ({ tags, handleDeleteTag }: { tags: string[]; handleDeleteTag: (index: number) => void }) => {
   return (
-    <div role="product-tags" className="flex flex-wrap gap-2">
+    <div role="product-tags" className="flex flex-wrap gap-1">
       {tags.map((tag, index) => (
-        <div onClick={() => handleDeleteTag(index)} key={index} className="cursor-pointer rounded-full bg-slate-200 px-2 py-1 text-sm text-slate-700 hover:bg-rose-500">
+        <div onClick={() => handleDeleteTag(index)} key={index} className="cursor-pointer rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 text-sm font-medium text-slate-700 hover:bg-rose-500">
           {tag}
         </div>
       ))}

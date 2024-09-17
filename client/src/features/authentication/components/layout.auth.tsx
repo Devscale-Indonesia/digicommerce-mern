@@ -1,5 +1,9 @@
-import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-export const AuthLayout = ({ children }: React.PropsWithChildren) => {
-  return <section className="flex h-screen items-center justify-center">{children}</section>;
+export const AuthLayout = () => {
+  return (
+    <section className="flex h-screen items-center justify-center">
+      <Outlet />
+    </section>
+  );
 };

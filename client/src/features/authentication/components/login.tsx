@@ -24,7 +24,7 @@ export const Login = () => {
   });
 
   return (
-    <AuthLayout>
+    <main>
       <Helmet>
         <title>Login</title>
       </Helmet>
@@ -36,7 +36,7 @@ export const Login = () => {
         <div className="space-y-2">
           <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
           <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-          <Button isFullwidth={true} disabled={isPending} onClick={() => handleSubmitLogin()}>
+          <Button disabled={isPending} onClick={() => handleSubmitLogin()} className="flex w-full justify-center">
             Login
           </Button>
           {isError && <div className="text-center text-sm font-medium text-rose-600">{error?.message}</div>}
@@ -45,6 +45,6 @@ export const Login = () => {
           Don't have an account ? <Link to="/register">Register</Link>
         </div>
       </div>
-    </AuthLayout>
+    </main>
   );
 };

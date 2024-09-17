@@ -5,9 +5,8 @@ import { tv } from 'tailwind-variants';
 const selectStyle = tv({
   slots: {
     trigger: 'border p-2 rounded-lg shadow-sm w-full flex justify-between',
-    content:
-      'overflow-hidden bg-white rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]',
-    selectItem: 'p-4 hover:outline-none hover:bg-primary-500 hover:text-white',
+    content: 'overflow-hidden bg-white rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]',
+    selectItem: 'p-2 hover:outline-none hover:bg-primary-500 hover:text-white transition duration-200',
   },
 });
 
