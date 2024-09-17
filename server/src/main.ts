@@ -3,7 +3,8 @@ import cors from "cors";
 import dbConnect from "./utils/db";
 import authRouter from "./router/auth.router";
 import productRouter from "./router/product.router";
-
+import { authMiddleware } from "./middleware/middleware";
+import cookieParser from "cookie-parser";
 const app = express();
 
 // config
@@ -17,9 +18,10 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieParser());
 
 // routes
 app.use("/api/auth", authRouter);
-app.use("/api/products", productRouter);
+app.use("/api/products", authMiddleware, productRouter);
 
 app.listen(8000, () => console.log("server running on port 8000"));

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Dashboard } from '../features/dashboard/components';
-import { DashboardProducts } from '../features/dashboard-products/components';
-import { FormCreateproduct } from '../features/dashboard-products/components/form.create-product';
-import { Login } from '../features/authentication/components/login';
-import { Register } from '../features/authentication/components/register';
+import { Dashboard } from '@/features/dashboard/components';
+import { DashboardProducts } from '@/features/dashboard-products/components';
+import { FormCreateproduct } from '@/features/dashboard-products/components/form.create-product';
+import { Login } from '@/features/authentication/components/login';
+import { Register } from '@/features/authentication/components/register';
 import LayoutDashboard from '@/features/dashboard/components/layout';
 import { Home } from '@/features/catalogs/components/home';
 import { Layout } from '@/features/catalogs/components/layout';

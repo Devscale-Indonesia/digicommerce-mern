@@ -22,8 +22,6 @@ router.post("/register", async (req, res) => {
       });
    }
 
-   console.log(findUser);
-
    const hashedPassword = await bcrypt.hash(password, 10);
    const user = { name, email, password: hashedPassword };
 
@@ -60,8 +58,8 @@ router.post("/login", async (req, res) => {
       email: user.email,
    };
 
-   const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string, { expiresIn: "15m" });
-   const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET as string, { expiresIn: "30d" });
+   const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string, { expiresIn: "30s" });
+   const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET as string, { expiresIn: "7d" });
 
    const findToken = await TokenModel.findOne({ userId: user._id });
    if (findToken) {
