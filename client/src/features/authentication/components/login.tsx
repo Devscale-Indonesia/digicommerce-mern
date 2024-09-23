@@ -23,6 +23,13 @@ export const Login = () => {
     onSuccess: () => navigate('/dashboard'),
   });
 
+  async function handleContinueWithGoogle(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await fetch('http://localhost:8000/api/auth/continue-with-google', {
+      method: 'POST',
+    });
+  }
+
   return (
     <main>
       <Helmet>
@@ -39,6 +46,9 @@ export const Login = () => {
           <Button disabled={isPending} onClick={() => handleSubmitLogin()} className="flex w-full justify-center">
             Login
           </Button>
+          <form action="http://localhost:8000/api/auth/continue-with-google" method="POST">
+            <Button className="flex w-full justify-center">Continue with Google</Button>
+          </form>
           {isError && <div className="text-center text-sm font-medium text-rose-600">{error?.message}</div>}
         </div>
         <div>

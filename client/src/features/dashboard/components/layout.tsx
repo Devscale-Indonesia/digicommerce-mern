@@ -9,13 +9,23 @@ interface LayoutProps {
   isCentered?: boolean;
 }
 
+interface LoggedInUser {
+  id: string;
+  name: string;
+  email: string;
+}
+
 const LayoutDashboard = (props: LayoutProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState<LoggedInUser | null>(null);
 
   useEffect(() => {
     const token = Cookies.get('accessToken');
+    const userCookie = JSON.parse(Cookies.get('user') as string);
+
     if (token) {
       setIsAuthenticated(true);
+      setUser(userCookie);
     } else {
       setIsAuthenticated(false);
       window.location.href = '/login';
@@ -35,6 +45,7 @@ const LayoutDashboard = (props: LayoutProps) => {
           <Menu label="Customers" icon={<Users size={18} />} />
         </section>
         <div>
+          {user && <div>{user.name}</div>}
           <Button variant="outline">Logout</Button>
         </div>
       </aside>

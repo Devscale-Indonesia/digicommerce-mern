@@ -6,8 +6,10 @@ import productRouter from "./router/product.router";
 import { authMiddleware } from "./middleware/middleware";
 import cookieParser from "cookie-parser";
 const app = express();
+import dotenv from "dotenv";
 
 // config
+dotenv.config();
 dbConnect();
 app.use(
    cors({
